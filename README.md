@@ -34,4 +34,10 @@ Para rodar o projeto basta usar o comando:
 cucumber
 ```
 
+ou
+
+```
+bundle exec cucumber
+```
+
 Até mais jovens!
