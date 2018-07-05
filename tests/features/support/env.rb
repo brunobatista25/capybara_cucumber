@@ -3,7 +3,6 @@ require 'capybara'
 require 'capybara/dsl'
 require 'capybara/rspec/matchers'
 require 'selenium-webdriver'
-require 'rspec'
 require 'faker'
 require 'ostruct'
 require 'site_prism'
@@ -17,12 +16,12 @@ World(Pages)
 World(Helper)
 
 # Variavel para o nome do ambiente
-ENVIRONMENT_TYPE = ENV['ENVIRONMENT_TYPE']
+AMBIENTE = ENV['AMBIENTE']
 # Variavel para o nome do browser
 BROWSER = ENV['BROWSER']
 # Configuracao para dizer o caminho do ambiente a se usar
 CONFIG = YAML.load_file(File
-  .dirname(__FILE__) + "/data/#{ENVIRONMENT_TYPE}.yml")
+  .dirname(__FILE__) + "/data/#{AMBIENTE}.yml")
 
 # Configura o tipo de browser
 Capybara.register_driver :selenium do |app|

@@ -1,9 +1,9 @@
 ## YAML Templatesss
 ---
-default: -p pretty -p html -p chrome -p homolog
+default: -p pretty -p html -p chrome -p prod
 for_ci:  --format progress
 pretty: --format pretty
 html:  --format html --out=results/report.html
-homolog:  ENVIRONMENT_TYPE=homolog
+prod:  AMBIENTE=prod
 chrome:  BROWSER=chrome
 firefox:  BROWSER=firefox
