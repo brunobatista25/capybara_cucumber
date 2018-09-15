@@ -1,7 +1,6 @@
 # Importa as gems
 require 'capybara'
-require 'capybara/dsl'
-require 'capybara/rspec/matchers'
+require 'capybara/cucumber'
 require 'selenium-webdriver'
 require 'faker'
 require 'ostruct'
@@ -10,8 +9,6 @@ require_relative 'page_helper.rb'
 require_relative 'helper.rb'
 
 # Coloca as variaveis como global
-World(Capybara::DSL)
-World(Capybara::RSpecMatchers)
 World(Pages)
 World(Helper)
 
@@ -26,19 +23,14 @@ CONFIG = YAML.load_file(File
 # Configura o tipo de browser
 Capybara.register_driver :selenium do |app|
   if BROWSER.eql?('chrome')
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-        'chromeOptions' => { 'args' => ['--start-maximized',
-                                        '--disable-infobars'] }
-      )
+    option = ::Selenium::WebDriver::Chrome::Options.new(
+      args: ['--start-fullscreen', '--disable-infobars']
     )
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: option)
   elsif BROWSER.eql?('firefox')
     Capybara::Selenium::Driver.new(
-      app,
-      browser: :firefox,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities
+      app, browser: :firefox,
+           desired_capabilities: Selenium::WebDriver::Remote::Capabilities
         .firefox(marionette: true)
     )
   end

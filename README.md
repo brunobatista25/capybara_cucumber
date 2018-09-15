@@ -15,7 +15,7 @@ https://github.com/brunobatista25/capybara_cucumber.git
 Depois entre na pasta
 
 ```
-capyabra_rspec/tests
+capyabra_cucumber/tests
 ```
 
 ## 3-Passo:

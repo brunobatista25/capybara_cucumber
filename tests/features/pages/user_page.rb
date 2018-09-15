@@ -18,10 +18,9 @@ class UserPage < SitePrism::Page
     endereco.set pessoa.endereco
     email.set pessoa.email
     universidade.set 'Anhanguera'
-    profissao.set 'analista' 
+    profissao.set 'analista'
     genero.set 'Masculino'
     idade.set 28
     botao_criar.click
   end
-
 end
