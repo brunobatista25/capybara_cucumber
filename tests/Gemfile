@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 gem 'capybara', '< 3.3'
-gem 'chromedriver-helper'
 gem 'cucumber'
 gem 'faker'
 gem 'rake'
